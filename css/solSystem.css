@@ -6,6 +6,7 @@
 body {
   height: 100vh;
   width: 100vw;
+  display: flex;
   background: rgb(39, 100, 112);
   background: linear-gradient(
     90deg,
@@ -13,56 +14,176 @@ body {
     rgba(47, 47, 83, 1) 40%,
     rgba(14, 13, 17, 1) 86%
   );
+}
+#container {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6.5%;
+  justify-content: center;
+  gap: 6%;
 }
 .planet {
   position: relative; /* Relative positioning for all planets */
 }
-#sun {
+.subFact {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  line-height: 1.6;
+}
+#mainTitle {
+  position: absolute;
+  color: white;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+#mainSubTitle {
+  position: absolute;
+  color: yellow;
+  right: 0.5rem;
+  top: 2.5rem;
+}
+.factSect {
+  display: grid; /* Change to grid layout */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
+  grid-template-rows: repeat(2, auto); /* 2 rows with auto height */
+  gap: 1rem; /* Add gap between grid items */
+  justify-items: center; /* Center items horizontally within each grid cell */
+  align-items: start; /* Align items to the top of each grid cell */
+  border-top: 2px solid rgba(255, 255, 255, 0.267); /* Slightly transparent white top border */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.267); /* Slightly transparent white bottom border */
+  position: relative;
+  width: 40vw;
+}
+
+button {
+  position: absolute;
+  bottom: 4rem; /* Adjust the button's distance from the bottom as needed */
+}
+
+button {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  height: 2rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+
+.infoCont {
+  width: 40vw;
+  height: 100vh;
+  display: flex;
+  margin-top: 5rem;
+  flex-direction: column;
+  color: white;
+  align-items: center; /* Center the content horizontally */
+  position: relative; /* Position relative for button placement */
+}
+.infoH1 {
+  color: white;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  align-self: start;
+  margin-left: 0.5rem;
+}
+.infoH2 {
+  color: yellow;
+  letter-spacing: 0.25rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  align-self: start;
+  margin-left: 0.5rem;
+}
+.infoPara {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  line-height: 1.6;
+}
+.moon {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  line-height: 1.6;
+  align-self: flex-start;
+  margin-left: 5.75rem;
+  overflow-wrap: break-word; /* Add this line to enable text wrapping */
+}
+.moon p {
+  width: 27vw;
+}
+#Solen,
+#sidePlanet {
   width: 25vw;
   height: 85vh;
-  background: yellow;
   border-radius: 50%;
   position: absolute;
   left: -20%;
 }
-#mercury {
-  margin-left: 15rem;
+
+#Merkurius {
+  margin-left: 5rem;
   background: grey;
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
 }
-#venus {
+#Venus {
   background: rgb(185, 185, 185);
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
 }
-#earth {
+#Jorden {
   background: rgb(65, 130, 252);
   height: 2.75rem;
   width: 2.75rem;
   border-radius: 50%;
 }
-#mars {
+#Mars {
   background: rgb(180, 114, 114);
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
 }
-#jupiter {
-  background: rgb(153, 114, 41);
+#Jupiter {
+  background: #e29468;
   height: 12rem;
   width: 12rem;
   border-radius: 50%;
 }
 
-#saturn {
-  background: rgb(204, 192, 17);
+#Saturnus {
+  background: #c7aa72;
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
@@ -79,15 +200,42 @@ body {
   transform: rotate(-30deg);
   opacity: 0.75;
 }
-#uranus {
+#Uranus {
   background: rgb(191, 191, 194);
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
 }
-#neptune {
+#Neptunus {
   background: rgb(123, 153, 192);
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
+}
+.sun-color {
+  background-color: yellow;
+}
+.merkurius-color {
+  background: grey;
+}
+.venus-color {
+  background: rgb(185, 185, 185);
+}
+.mars-color {
+  background: rgb(180, 114, 114);
+}
+.jupiter-color {
+  background: #e29468;
+}
+.saturnus-color {
+  background: #c7aa72;
+}
+.uranus-color {
+  background: rgb(191, 191, 194);
+}
+.jorden-color {
+  background: rgb(65, 130, 252);
+}
+.neptune-color {
+  background: rgb(123, 153, 192);
 }
